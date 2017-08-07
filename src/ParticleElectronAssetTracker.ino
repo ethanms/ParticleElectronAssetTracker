@@ -1,14 +1,12 @@
-// This #include statement was automatically added by the Particle IDE.
 #include <AssetTrackerRK.h>
-#include <SparkJson.h>
 #include <HttpClient.h>
 
-#define MINIMUM_PERIOD      20000       //  1 minute
-#define RUNNING_HEART       120000      //  2 minutes when powered
-#define MAXIMUM_PERIOD      3600000     //  1 hour
-#define CELLULAR_WATCHDOG   600000      // 10 minutes
-#define MOVING_THRESHOLD    10          // 20 meters
-#define SLEEP_TRIGGER       300000      //  5 minutes
+#define MINIMUM_PERIOD      20000       //  20 seconds minimum between publish attempts
+#define RUNNING_HEART       120000      //  2 minutes maximum between pushings (when powered)
+#define MAXIMUM_PERIOD      3600000     //  1 hour between publishings (when unpowered)
+#define CELLULAR_WATCHDOG   600000      // 10 minutes to restart device if no cell connection can be made
+#define MOVING_THRESHOLD    10          // 10 meters between positions consitutes movement
+#define SLEEP_TRIGGER       300000      //  5 minutes to go to sleep
 #define STAY_AWAKE_TIMEOUT  6 * 60 * 60 * 1000 // 6 hours
 
 void refreshGPSAlt();
